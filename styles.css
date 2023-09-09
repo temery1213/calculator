@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    min-height: 100vh;
+    background-color: blanchedalmond;
+}
+
+.container {
+    display: flex;
+    border: 2px solid black;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    background-color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Start from the left */
+    border: 2px solid black;
+    width: 300px;
+    height: 50px;
+    overflow: hidden;
+    background-color: white;
+    
+}
+
+.h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+button {
+    
+   font-size: xx-large;
+   flex-wrap: wrap;
+   height: 50px;
+   width: 50px;
+  
+  
+   
+
+}
+
+
+
