@@ -47,74 +47,120 @@ const num9 = document.getElementById("num9");
 const numadd = document.getElementById("numadd");
 
 const flextopcontainer = document.getElementById("flextopcontainer");
-let numset = "";
 let numA = "";
 let numB = "";
+let operator = "";
+
+// calculate // 
+
+function calculate() {
+    const operand1 = parseFloat(numA);
+    const operand2 = parseFloat(numB);
+  
+    switch (operator) {
+      case "+":
+        return operand1 + operand2;
+      case "-":
+        return operand1 - operand2;
+      case "*":
+        return operand1 * operand2;
+      case "/":
+        return operand1 / operand2;
+      default:
+        return NaN; // Invalid operator
+    }
+  }
+
 // Add event listeners for each number button
 num0.addEventListener("click", function () {
   flextopcontainer.textContent += "0";
-  numset = flextopcontainer.textContent;
-  console.log(numset);
+  numB += "0";
+  console.log(numB);
 });
 
 
 num1.addEventListener("click", function () {
-  flextopcontainer.textContent += "1";
-  numset = flextopcontainer.textContent;
-  console.log(numset);
-});
+    flextopcontainer.textContent += "1";
+    numB += "1";
+    console.log(numB);
+  });
 
 num2.addEventListener("click", function () {
     flextopcontainer.textContent += "2";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "2";
+    console.log(numB);
   });
 
 num3.addEventListener("click", function () {
     flextopcontainer.textContent += "3";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "3";
+    console.log(numB);
   });
 
 num4.addEventListener("click", function () {
     flextopcontainer.textContent += "4";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "4";
+    console.log(numB);
   });
 
 num5.addEventListener("click", function () {
     flextopcontainer.textContent += "5";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "5";
+    console.log(numB);
   });
 
 num6.addEventListener("click", function () {
     flextopcontainer.textContent += "6";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "6";
+    console.log(numB);
   });
 
 num7.addEventListener("click", function () {
     flextopcontainer.textContent += "7";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "7";
+    console.log(numB);
   });
 
 num8.addEventListener("click", function () {
     flextopcontainer.textContent += "8";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "8";
+    console.log(numB);
   });
 
 num9.addEventListener("click", function () {
     flextopcontainer.textContent += "9";
-    numset = flextopcontainer.textContent;
-    console.log(numset);
+    numB += "9";
+    console.log("numb", numB);
+    console.log("numa", numA);
   });
   
 numadd.addEventListener("click", function () {
-    numset = flextopcontainer.textContent;
-    numA = flextopcontainer.textContent;
-    flextopcontainer.textContent += "";
-   
-  });
+    if (numA !== "" && numB !== "") {
+        numA = calculate(); // Perform previous calculation
+        numB = "";
+      } else {
+        numA = flextopcontainer.textContent; // Store the first number
+      }
+      
+      operator = "+";
+      flextopcontainer.textContent = "";
+    });
+
+
+
+
+    numequals.addEventListener("click", function () {
+        // Check if numA, numB, and the operator are all valid
+        if (numA !== "" && numB !== "" && operator !== "") {
+            numA = calculate(); // Perform the calculation
+            numB = "";
+            operator = "";
+            flextopcontainer.textContent = numA.toString(); // Display the result
+        }
+    });
+
+    clear.addEventListener("click", function(){
+        flextopcontainer.textContent = "";
+        numA = "";
+        numB = "";
+    });
