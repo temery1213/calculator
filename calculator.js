@@ -83,7 +83,7 @@ num4.addEventListener("click", function () {
   });
 
 num5.addEventListener("click", function () {
-    appendNumberToDisplay("6");
+    appendNumberToDisplay("5");
     numB = "5";
   });
 
@@ -113,12 +113,12 @@ numadd.addEventListener("click", function () {
         numB = "";
     } else {
         numA = flextopcontainer.textContent; // Store the first number
-      }
+    }
       
-      operator = "+";
+    operator = "+";
     
-      flextopcontainer.textContent = numA;
-    });
+    flextopcontainer.textContent = numA;
+});
 
 numsubtract.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
@@ -126,12 +126,12 @@ numsubtract.addEventListener("click", function () {
         numB = "";
     } else {
         numA = flextopcontainer.textContent; // Store the first number
-        }
-          
-        operator = "-";
-        
-        flextopcontainer.textContent = numB;
-    });
+    }
+      
+    operator = "-";
+    
+    flextopcontainer.textContent = numA;
+});
 
 nummultiply.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
@@ -139,25 +139,25 @@ nummultiply.addEventListener("click", function () {
         numB = "";
     } else {
         numA = flextopcontainer.textContent; // Store the first number
-        }
-              
-        operator = "*";
+    }
+          
+    operator = "*";
             
-        flextopcontainer.textContent = numB;
-    });  
-    
+    flextopcontainer.textContent = numA;
+});  
+
 numdivide.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
         numA = calculate(); // Perform previous calculation
         numB = "";
     } else {
         numA = flextopcontainer.textContent; // Store the first number
-        }
+    }
               
-        operator = "/";
+    operator = "/";
             
-        flextopcontainer.textContent = numA;
-    });  
+    flextopcontainer.textContent = numA;
+});  
 
 
 
@@ -170,7 +170,7 @@ numequals.addEventListener("click", function () {
         
         operator = "";
         
-        flextopcontainer.textContent = numA.toString(); // Display the result
+        flextopcontainer.textContent = numA; // Display the result
     }
     });
 
