@@ -15,8 +15,8 @@ const nummultiply = document.getElementById("nummultiply");
 const numdivide = document.getElementById("numdivide");
 const numequals = document.getElementById("numequals");
 const clear = document.getElementById("clear");
-
 const flextopcontainer = document.getElementById("flextopcontainer");
+
 let numA = "";
 let numB = "";
 let operator = "";
@@ -44,68 +44,67 @@ function calculate() {
           return NaN; // Invalid operator
       }
   }
+// update display //
 
+function appendNumberToDisplay(number) {
+    if (flextopcontainer.textContent === "0" || operator !== "") {
+        flextopcontainer.textContent = number;
+    } else {
+        flextopcontainer.textContent += number;
+    }
+    numB += number;
+}
 // Add event listeners for each number button
 num0.addEventListener("click", function () {
-  flextopcontainer.textContent = "0";
-  numB = "0";
-  console.log(numB);
+    appendNumberToDisplay("0");
+    numB = "0";
+ 
 });
 
 
 num1.addEventListener("click", function () {
-    flextopcontainer.textContent += "1";
+    appendNumberToDisplay("1");
     numB = "1";
-    console.log(numB);
   });
 
 num2.addEventListener("click", function () {
-    flextopcontainer.textContent = "2";
+    appendNumberToDisplay("2");
     numB = "2";
-    console.log(numB);
   });
 
 num3.addEventListener("click", function () {
-    flextopcontainer.textContent = "3";
+    appendNumberToDisplay("3");
     numB = "3";
-    console.log(numB);
   });
 
 num4.addEventListener("click", function () {
-    flextopcontainer.textContent = "4";
+    appendNumberToDisplay("4");
     numB = "4";
-    console.log(numB);
   });
 
 num5.addEventListener("click", function () {
-    flextopcontainer.textContent = "5";
+    appendNumberToDisplay("6");
     numB = "5";
-    console.log(numB);
   });
 
 num6.addEventListener("click", function () {
-    flextopcontainer.textContent = "6";
+    appendNumberToDisplay("6");
     numB = "6";
-    console.log(numB);
   });
 
 num7.addEventListener("click", function () {
-    flextopcontainer.textContent = "7";
+    appendNumberToDisplay("7");
     numB = "7";
-    console.log(numB);
   });
 
 num8.addEventListener("click", function () {
-    flextopcontainer.textContent = "8";
+    appendNumberToDisplay("8");
     numB = "8";
-    console.log(numB);
   });
 
 num9.addEventListener("click", function () {
-    flextopcontainer.textContent = "9";
+    appendNumberToDisplay("9");
     numB = "9";
-    console.log("numb", numB);
-    console.log("numa", numA);
   });
   
 numadd.addEventListener("click", function () {
@@ -131,7 +130,7 @@ numsubtract.addEventListener("click", function () {
           
         operator = "-";
         
-        flextopcontainer.textContent = numA;
+        flextopcontainer.textContent = numB;
     });
 
 nummultiply.addEventListener("click", function () {
@@ -144,7 +143,7 @@ nummultiply.addEventListener("click", function () {
               
         operator = "*";
             
-        flextopcontainer.textContent = numA;
+        flextopcontainer.textContent = numB;
     });  
     
 numdivide.addEventListener("click", function () {
