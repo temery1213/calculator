@@ -20,6 +20,7 @@ const flextopcontainer = document.getElementById("flextopcontainer");
 let numA = "";
 let numB = "";
 let operator = "";
+let operatorApplied = false;
 
 // calculate // 
 
@@ -47,86 +48,89 @@ function calculate() {
 // update display //
 
 function appendNumberToDisplay(number) {
-    if (flextopcontainer.textContent === "0" || operator !== "") {
-        flextopcontainer.textContent = number;
-    } else {
-        flextopcontainer.textContent += number;
-    }
-    numB += number;
+  if (flextopcontainer.textContent === "0" || operatorApplied) {
+      flextopcontainer.textContent = number;
+      operatorApplied = false; // Reset operatorApplied flag
+  } else {
+      flextopcontainer.textContent += number;
+  }
+  numB += number;
 }
+
 // Add event listeners for each number button
 num0.addEventListener("click", function () {
-    appendNumberToDisplay("0");
-    numB = "0";
- 
+  appendNumberToDisplay("0");
+  console.log("numA", numA)
+    console.log("numB", numB)
 });
 
-
 num1.addEventListener("click", function () {
-    appendNumberToDisplay("1");
-    numB = "1";
-  });
+  appendNumberToDisplay("1");
+  console.log("numA", numA)
+    console.log("numB", numB)
+});
 
 num2.addEventListener("click", function () {
     appendNumberToDisplay("2");
-    numB = "2";
+
+    console.log("numA", numA)
+    console.log("numB", numB)
   });
 
 num3.addEventListener("click", function () {
     appendNumberToDisplay("3");
-    numB = "3";
   });
 
 num4.addEventListener("click", function () {
     appendNumberToDisplay("4");
-    numB = "4";
   });
 
 num5.addEventListener("click", function () {
     appendNumberToDisplay("5");
-    numB = "5";
   });
 
 num6.addEventListener("click", function () {
     appendNumberToDisplay("6");
-    numB = "6";
   });
 
 num7.addEventListener("click", function () {
     appendNumberToDisplay("7");
-    numB = "7";
   });
 
 num8.addEventListener("click", function () {
     appendNumberToDisplay("8");
-    numB = "8";
   });
 
 num9.addEventListener("click", function () {
     appendNumberToDisplay("9");
-    numB = "9";
   });
   
-numadd.addEventListener("click", function () {
+  numadd.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
         numA = calculate(); // Perform previous calculation
-        numB = "";
-    } else {
-        numA = flextopcontainer.textContent; // Store the first number
-    }
-      
-    operator = "+";
+        operatorApplied = true; // Operator has been applied
     
-    flextopcontainer.textContent = numA;
+      } else {
+        numB = "";
+        numA = flextopcontainer.textContent; // Store the first number
+        operatorApplied = true; // Operator has been applied
+    }
+
+    operator = "+";
+
+    
 });
 
 numsubtract.addEventListener("click", function () {
-    if (numA !== "" && numB !== "") {
-        numA = calculate(); // Perform previous calculation
-        numB = "";
-    } else {
-        numA = flextopcontainer.textContent; // Store the first number
-    }
+  if (numA !== "" && numB !== "") {
+    numA = calculate(); // Perform previous calculation
+    operatorApplied = true; // Operator has been applied
+
+  } else {
+    numB = "";
+    numA = flextopcontainer.textContent; // Store the first number
+    operatorApplied = true; // Operator has been applied
+}
       
     operator = "-";
     
@@ -134,12 +138,15 @@ numsubtract.addEventListener("click", function () {
 });
 
 nummultiply.addEventListener("click", function () {
-    if (numA !== "" && numB !== "") {
-        numA = calculate(); // Perform previous calculation
-        numB = "";
-    } else {
-        numA = flextopcontainer.textContent; // Store the first number
-    }
+  if (numA !== "" && numB !== "") {
+    numA = calculate(); // Perform previous calculation
+    operatorApplied = true; // Operator has been applied
+
+  } else {
+    numB = "";
+    numA = flextopcontainer.textContent; // Store the first number
+    operatorApplied = true; // Operator has been applied
+}
           
     operator = "*";
             
@@ -147,12 +154,15 @@ nummultiply.addEventListener("click", function () {
 });  
 
 numdivide.addEventListener("click", function () {
-    if (numA !== "" && numB !== "") {
-        numA = calculate(); // Perform previous calculation
-        numB = "";
-    } else {
-        numA = flextopcontainer.textContent; // Store the first number
-    }
+  if (numA !== "" && numB !== "") {
+    numA = calculate(); // Perform previous calculation
+    operatorApplied = true; // Operator has been applied
+
+  } else {
+    numB = "";
+    numA = flextopcontainer.textContent; // Store the first number
+    operatorApplied = true; // Operator has been applied
+}
               
     operator = "/";
             
