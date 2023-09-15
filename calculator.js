@@ -60,21 +60,18 @@ function appendNumberToDisplay(number) {
 // Add event listeners for each number button
 num0.addEventListener("click", function () {
   appendNumberToDisplay("0");
-  console.log("numA", numA)
-    console.log("numB", numB)
+ 
 });
 
 num1.addEventListener("click", function () {
   appendNumberToDisplay("1");
-  console.log("numA", numA)
-    console.log("numB", numB)
+  
 });
 
 num2.addEventListener("click", function () {
     appendNumberToDisplay("2");
 
-    console.log("numA", numA)
-    console.log("numB", numB)
+   
   });
 
 num3.addEventListener("click", function () {
@@ -105,6 +102,8 @@ num9.addEventListener("click", function () {
     appendNumberToDisplay("9");
   });
   
+  // add //
+
   numadd.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
         numA = calculate(); // Perform previous calculation
@@ -121,6 +120,8 @@ num9.addEventListener("click", function () {
     
 });
 
+// subtract //
+
 numsubtract.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
     numA = calculate(); // Perform previous calculation
@@ -136,7 +137,7 @@ numsubtract.addEventListener("click", function () {
     
     flextopcontainer.textContent = numA;
 });
-
+// multiply //
 nummultiply.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
     numA = calculate(); // Perform previous calculation
@@ -153,6 +154,7 @@ nummultiply.addEventListener("click", function () {
     flextopcontainer.textContent = numA;
 });  
 
+// division //
 numdivide.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
     numA = calculate(); // Perform previous calculation
@@ -170,7 +172,7 @@ numdivide.addEventListener("click", function () {
 });  
 
 
-
+// equals //
 
 numequals.addEventListener("click", function () {
         // Check if numA, numB, and the operator are all valid
