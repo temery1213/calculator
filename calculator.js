@@ -16,6 +16,7 @@ const numdivide = document.getElementById("numdivide");
 const numequals = document.getElementById("numequals");
 const clear = document.getElementById("clear");
 const flextopcontainer = document.getElementById("flextopcontainer");
+const backspace = document.getElementById("backspace");
 
 let numA = "";
 let numB = "";
@@ -191,3 +192,10 @@ clear.addEventListener("click", function(){
         numA = "";
         numB = "";
     });
+
+backspace.addEventListener("click", function(){
+        numB = numB.toString().split("").slice(0, -1).join("");
+        flextopcontainer.textContent = numB;
+        console.log(numB);
+        
+});

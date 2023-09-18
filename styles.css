@@ -39,7 +39,7 @@ body {
 .display {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end; /* Start from the left */
+    justify-content: flex-end; 
     border: 2px solid #050505;
     width: 300px;
     height: 50px;
@@ -69,25 +69,24 @@ body {
 
 button {
     
-   font-size: xx-large;
    flex-wrap: wrap;
    height: 50px;
    width: 50px;
-   font-size: 20px; /* Adjust the font size as needed */
-   background-color: #000000; /* Button background color */
-   color: #00e1ff; /* Button text color */
-   padding: 10px 20px; /* Adjust padding as needed */
-   border: none; /* Remove button border */
-   cursor: pointer; /* Add a pointer cursor on hover */
+   font-size: 15px; 
+   background-color: #000000; 
+   color: #00e1ff; 
+   padding: 10px 20px;
+   border: none; 
+   cursor: pointer; 
    font-family: 'Cyberpunk is not dead', sans-serif;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   /* Apply text shadow */
    text-shadow: 1px 1px 2px #03dbf8; /* Horizontal offset, vertical offset, blur radius, shadow color */
 }
   
 button:hover {
     background-color: #00e1ff;
+    color: #ffee00;
 }
 
 
@@ -95,22 +94,23 @@ button:hover {
 
 #clear {
 
-    width: 120px;
+    width: 100px;
 }
 
 #backspace {
     
-    width: 120px;
+    width: 100px;
 }
 
 
 
-/* button hover */
+
 .text:hover::after {
-    transform: translate(5px, 5px); /* Add a subtle animation on hover */
+    transform: translate(5px, 5px);
+   
 }
 
-#numadd, #numsubtract, #nummultiply, #numdivide  {
+#numadd, #numsubtract, #nummultiply, #numdivide, #decimal  {
     color: rgb(255, 0, 0);
 }
 
