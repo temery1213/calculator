@@ -149,33 +149,31 @@ num9.addEventListener("click", function () {
   });
   
   // numbers key press //
-
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keyup", function (event) {
     const key = event.key;
-    
+  
     if (/[0-9]/.test(key)) {
       // If the pressed key is a number (0-9), append it to the display
       appendNumberToDisplay(key);
-    }
-  });
-
-  // operator key press //
-
-  document.addEventListener("keydown", function (event) {
-    const key = event.key;
-  
-    if (key === "Enter" || key === "=" || key === "+") {
-      numequals();
+    } else if (key === "+") {
+      event.preventDefault();
+      numadd.click();
     } else if (key === "-") {
-      numsubtract.click(); // Simulate a click on the subtraction button
+      numsubtract.click();
     } else if (key === "*") {
-      nummultiply.click(); // Simulate a click on the multiplication button
+      nummultiply.click();
     } else if (key === "/") {
-      numdivide.click(); // Simulate a click on the division button
+      numdivide.click();
     } else if (key === "Backspace") {
       backspace.click();
     } else if (key === "Delete") {
       clear.click();
+    } else if (key === ".") {
+      decimal.click();
+    } else if (event.keyCode === 13) {
+      // Check for "Enter" key using key code (13)
+      event.preventDefault();
+      numequals.click();
     }
   });
  
@@ -183,70 +181,63 @@ num9.addEventListener("click", function () {
 
   numadd.addEventListener("click", function () {
     if (numA !== "" && numB !== "") {
-        numA = calculate(); // Perform previous calculation
-        operatorApplied = true; // Operator has been applied
-    
-      } else {
-        numB = "";
-        numA = flextopcontainer.textContent; // Store the first number
-        operatorApplied = true; // Operator has been applied
+      numA = calculate();
+      numB = "";
+      flextopcontainer.textContent = numA;
+    } else {
+      numB = "";
+      numA = flextopcontainer.textContent;
     }
     resetDecimalFlag();
     operator = "+";
-
-    
-});
-
+    operatorApplied = true;
+  });
 // subtract //
 
 numsubtract.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
-    numA = calculate(); // Perform previous calculation
-    operatorApplied = true; // Operator has been applied
-
+    numA = calculate();
+    numB = "";
+    flextopcontainer.textContent = numA;
   } else {
     numB = "";
-    numA = flextopcontainer.textContent; // Store the first number
-    operatorApplied = true; // Operator has been applied
-}
-    resetDecimalFlag();
-    operator = "-";
-    
-    flextopcontainer.textContent = numA;
+    numA = flextopcontainer.textContent;
+  }
+  resetDecimalFlag();
+  operator = "-";
+  operatorApplied = true;
 });
+
 // multiply //
 nummultiply.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
-    numA = calculate(); // Perform previous calculation
-    operatorApplied = true; // Operator has been applied
-
+    numA = calculate();
+    numB = "";
+    flextopcontainer.textContent = numA;
   } else {
     numB = "";
-    numA = flextopcontainer.textContent; // Store the first number
-    operatorApplied = true; // Operator has been applied
-}
-    resetDecimalFlag();      
-    operator = "*";
-            
-    flextopcontainer.textContent = numA;
-});  
+    numA = flextopcontainer.textContent;
+  }
+  resetDecimalFlag();
+  operator = "*";
+  operatorApplied = true;
+});
 
 // division //
 numdivide.addEventListener("click", function () {
   if (numA !== "" && numB !== "") {
-    numA = calculate(); // Perform previous calculation
-    operatorApplied = true; // Operator has been applied
-
+    numA = calculate();
+    numB = "";
+    flextopcontainer.textContent = numA;
   } else {
     numB = "";
-    numA = flextopcontainer.textContent; // Store the first number
-    operatorApplied = true; // Operator has been applied
-}
-    resetDecimalFlag();         
-    operator = "/";
-            
-    flextopcontainer.textContent = numA;
-});  
+    numA = flextopcontainer.textContent;
+  }
+  resetDecimalFlag();
+  operator = "/";
+  operatorApplied = true;
+});
+
 
 
 // equals //
@@ -254,13 +245,13 @@ numdivide.addEventListener("click", function () {
 numequals.addEventListener("click", function () {
         // Check if numA, numB, and the operator are all valid
     if (numA !== "" && numB !== "" && operator !== "") {
-        numA = calculate(); // Perform the calculation
+        numA = calculate(); 
         numB = "";
 
         resetDecimalFlag();
         operator = "";
         
-        flextopcontainer.textContent = numA; // Display the result
+        flextopcontainer.textContent = numA; 
     }
     });
 
