@@ -69,7 +69,7 @@ function appendNumberToDisplay(number) {
     operatorApplied = false; 
   } else {
     // Check if the displayed content will exceed 15 characters
-    if (flextopcontainer.textContent.length >= 10) {
+    if (flextopcontainer.textContent.length >= 15) {
       return; // Don't add more characters
     }
 
@@ -148,6 +148,37 @@ num9.addEventListener("click", function () {
     
   });
   
+  // numbers key press //
+
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+    
+    if (/[0-9]/.test(key)) {
+      // If the pressed key is a number (0-9), append it to the display
+      appendNumberToDisplay(key);
+    }
+  });
+
+  // operator key press //
+
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+  
+    if (key === "Enter" || key === "=" || key === "+") {
+      numequals();
+    } else if (key === "-") {
+      numsubtract.click(); // Simulate a click on the subtraction button
+    } else if (key === "*") {
+      nummultiply.click(); // Simulate a click on the multiplication button
+    } else if (key === "/") {
+      numdivide.click(); // Simulate a click on the division button
+    } else if (key === "Backspace") {
+      backspace.click();
+    } else if (key === "Delete") {
+      clear.click();
+    }
+  });
+ 
   // add //
 
   numadd.addEventListener("click", function () {
