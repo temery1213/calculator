@@ -22,85 +22,130 @@ let numA = "";
 let numB = "";
 let operator = "";
 let operatorApplied = false;
+let decimalAdded = false;
 
 // calculate // 
 
 function calculate() {
-    const operand1 = parseFloat(numA);
-    const operand2 = parseFloat(numB);
-  
-    switch (operator) {
-        case "+":
-          return operand1 + operand2;
-        case "-":
-          return operand1 - operand2;
-        case "*":
-          return operand1 * operand2;
-        case "/":
-          if (operand2 === 0) { // Corrected the syntax here
-            return "Are you trying to break the universe?";
-          } else {
-            return operand1 / operand2;
-          }
-        default:
-          return NaN; // Invalid operator
-      }
-  }
-// update display //
+  const operand1 = parseFloat(numA);
+  const operand2 = parseFloat(numB);
 
-function appendNumberToDisplay(number) {
-  if (flextopcontainer.textContent === "0" || operatorApplied) {
-      flextopcontainer.textContent = number;
-      operatorApplied = false; // Reset operatorApplied flag
-  } else {
-      flextopcontainer.textContent += number;
+  let result;
+
+  switch (operator) {
+    case "+":
+      result = operand1 + operand2;
+      break;
+    case "-":
+      result = operand1 - operand2;
+      break;
+    case "*":
+      result = operand1 * operand2;
+      break;
+    case "/":
+      if (operand2 === 0) {
+        return "Are you trying to break the universe?";
+      } else {
+        result = operand1 / operand2;
+      }
+      break;
+    default:
+      return NaN; // Invalid operator
   }
+
+  // Convert the result to a string and limit it to 15 characters
+  const resultString = result.toString().slice(0, 15);
+
+  return resultString;
+}
+// update display //
+function appendNumberToDisplay(number) {
+  // Check if a decimal point has been added
+  if (number === "." && decimalAdded) {
+    return; // Don't add another decimal point
+  }
+  if (flextopcontainer.textContent === "0" || operatorApplied) {
+    flextopcontainer.textContent = number;
+    operatorApplied = false; 
+  } else {
+    // Check if the displayed content will exceed 15 characters
+    if (flextopcontainer.textContent.length >= 10) {
+      return; // Don't add more characters
+    }
+
+    if (number === "." && decimalAdded) {
+      return; 
+    }
+    
+    flextopcontainer.textContent += number;
+    
+   
+    if (number === ".") {
+      decimalAdded = true;
+    }
+  }
+
   numB += number;
 }
+
+
+function resetDecimalFlag() {
+  decimalAdded = false;
+}
+
 
 // Add event listeners for each number button
 num0.addEventListener("click", function () {
   appendNumberToDisplay("0");
+  
  
 });
 
 num1.addEventListener("click", function () {
   appendNumberToDisplay("1");
   
+  
 });
 
 num2.addEventListener("click", function () {
     appendNumberToDisplay("2");
+    
 
-   
-  });
+   });
 
 num3.addEventListener("click", function () {
     appendNumberToDisplay("3");
+    
   });
 
 num4.addEventListener("click", function () {
     appendNumberToDisplay("4");
+   
   });
 
 num5.addEventListener("click", function () {
     appendNumberToDisplay("5");
+    
   });
 
 num6.addEventListener("click", function () {
     appendNumberToDisplay("6");
+    
   });
 
 num7.addEventListener("click", function () {
     appendNumberToDisplay("7");
+    
   });
 
 num8.addEventListener("click", function () {
     appendNumberToDisplay("8");
+    
   });
 
 num9.addEventListener("click", function () {
     appendNumberToDisplay("9");
+    
   });
   
   // add //
@@ -115,7 +160,7 @@ num9.addEventListener("click", function () {
         numA = flextopcontainer.textContent; // Store the first number
         operatorApplied = true; // Operator has been applied
     }
-
+    resetDecimalFlag();
     operator = "+";
 
     
@@ -133,7 +178,7 @@ numsubtract.addEventListener("click", function () {
     numA = flextopcontainer.textContent; // Store the first number
     operatorApplied = true; // Operator has been applied
 }
-      
+    resetDecimalFlag();
     operator = "-";
     
     flextopcontainer.textContent = numA;
@@ -149,7 +194,7 @@ nummultiply.addEventListener("click", function () {
     numA = flextopcontainer.textContent; // Store the first number
     operatorApplied = true; // Operator has been applied
 }
-          
+    resetDecimalFlag();      
     operator = "*";
             
     flextopcontainer.textContent = numA;
@@ -166,7 +211,7 @@ numdivide.addEventListener("click", function () {
     numA = flextopcontainer.textContent; // Store the first number
     operatorApplied = true; // Operator has been applied
 }
-              
+    resetDecimalFlag();         
     operator = "/";
             
     flextopcontainer.textContent = numA;
@@ -180,7 +225,8 @@ numequals.addEventListener("click", function () {
     if (numA !== "" && numB !== "" && operator !== "") {
         numA = calculate(); // Perform the calculation
         numB = "";
-        
+
+        resetDecimalFlag();
         operator = "";
         
         flextopcontainer.textContent = numA; // Display the result
@@ -198,4 +244,8 @@ backspace.addEventListener("click", function(){
         flextopcontainer.textContent = numB;
         console.log(numB);
         
+});
+
+decimal.addEventListener("click", function(){
+        appendNumberToDisplay(".");
 });
