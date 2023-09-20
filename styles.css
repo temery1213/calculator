@@ -48,6 +48,7 @@ body {
     font-size: xx-large;
     border-radius: 3px;
     padding: auto;
+    color: #050505;
     
 }
 
@@ -81,12 +82,12 @@ button {
    font-family: 'Cyberpunk is not dead', sans-serif;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   text-shadow: 1px 1px 2px #03dbf8; /* Horizontal offset, vertical offset, blur radius, shadow color */
+   
 }
   
 button:hover {
     background-color: #00e1ff;
-    color: #ffee00;
+    color: #000000;
 }
 
 
@@ -111,13 +112,13 @@ button:hover {
 }
 
 #numadd, #numsubtract, #nummultiply, #numdivide, #decimal  {
-    color: rgb(255, 0, 0);
-    text-shadow: 1px 1px 2px #922626;
+    color: #ff7300;
+    
 }
 
 #numequals {
-    color: rgb(71, 255, 47);
-    text-shadow: 1px 1px 2px rgb(24, 158, 6);
+    color: rgb(255, 255, 255);
+    
 }
 
 

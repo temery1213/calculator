@@ -147,7 +147,7 @@ num9.addEventListener("click", function () {
     appendNumberToDisplay("9");
     
   });
-  
+
   // numbers key press //
   document.addEventListener("keyup", function (event) {
     const key = event.key;
